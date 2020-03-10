@@ -1,0 +1,66 @@
+﻿@model Filmes1.Models.CatalogoFilmes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CatalogoFilmes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoMidia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoMidia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Elenco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elenco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direcao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direcao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

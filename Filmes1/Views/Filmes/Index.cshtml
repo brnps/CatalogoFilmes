@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Filmes1.Models.CatalogoFilmes>
+    <link href="~/Content/bootstrap-lumen.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+}
+
+    <center><h2>Catalogo de Filmes</h2></center>
+<br />
+<p>
+
+</p>
+@using (Html.BeginForm("Index", "Filmes", FormMethod.Get))
+{
+<form>
+    <div class="form-group">
+        @Html.TextBox("search", "", new { @class = "form-control", placeholder = "Pesquise por Titulo, Ano, Tipo de Midia..." })
+    </div>
+    <input type="submit" class="btn btn-primary" value="Pesquisar" />
+                <a href="@Url.Action("Create")" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Novo Filme
+                </a>
+</form>
+}
+<br />
+<br />
+<table class="table table-bordered table-responsive table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duracao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoMidia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Elenco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direcao)
+        </th>
+        <th></th>
+    </tr>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red;">
+                    Nenhum registro encontrado.
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                    @Html.DisplayFor(modelItem => item.Duracao)
+                </td>
+                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                    @Html.DisplayFor(modelItem => item.Ano)
+                </td>
+                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                    @Html.DisplayFor(modelItem => item.TipoMidia)
+                </td>
+                <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
+                    @Html.DisplayFor(modelItem => item.Elenco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direcao)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new {@class="btn btn-primary" })
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.ID }, new {@class="btn btn-danger" })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

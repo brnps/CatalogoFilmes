@@ -1,0 +1,71 @@
+﻿@model Filmes1.Models.CatalogoFilmes
+    <link href="~/Content/bootstrap-lumen.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar</h2>
+
+<h3>Tem certeza que deseja deletar o item escolhido?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duracao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duracao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoMidia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoMidia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Elenco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Elenco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direcao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direcao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-danger" /> |
+            @Html.ActionLink("Voltar", "Index","",new {@class="btn btn-primary" })
+        </div>
+    }
+</div>
